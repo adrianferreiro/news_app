@@ -9,7 +9,9 @@ class RemoteArticlesBloc
   final GetArticleUseCase _getArticleUseCase;
   //debemos espicificar un estado inicial
   RemoteArticlesBloc(this._getArticleUseCase)
-      : super(const RemoteArticlesLoading());
+      : super(const RemoteArticlesLoading()) {
+    on<GetArticles>(onGetArticles);
+  }
 
   void onGetArticles(
       GetArticles event, Emitter<RemoteArticlesState> emit) async {
